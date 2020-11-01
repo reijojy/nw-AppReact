@@ -98,8 +98,11 @@ class NWCustomerEdit extends Component {
            Fax: this.state.Fax};
      
         const kundJson = JSON.stringify(kund);
-        const apiUrl = 'https://localhost:5001/api/customers/' +
-                    this.state.CustomerId;
+        // Backendin urin alku
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        /* const apiUrl = 'https://localhost:5001/api/customers/' +
+                    this.state.CustomerId; */
+        const apiUrl = baseUrl + 'customers/' + this.state.CustomerId;            
         fetch(apiUrl, {
             method: "PUT",
             headers: {

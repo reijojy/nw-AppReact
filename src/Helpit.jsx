@@ -19,6 +19,7 @@ class Helpit extends Component {
             return(
                 <div>
                     <p>Voit hakea asiakkaita sekä muokata heitä</p>  
+                    <p>{process.env.REACT_APP_TITLE}</p>
                 </div>          
             );
         } else {

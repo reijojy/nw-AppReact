@@ -93,11 +93,12 @@ class CustomerFetch extends Component {
         this.GetCustomerData();
     }
     GetCustomerData() {
-        /* let uri = 'https://localhost:5001/api/customers/R?offSet=' + this.state.start
-             +  '&limit=' + this.state.limit; */
-        let uri = 'https://nwrestservices20201028190857.azurewebsites.net/api/customers/R?offSet=' + this.state.start
-             +  '&limit=' + this.state.limit;     
-        console.log("<==== GetCustomerData ====>" + uri);
+        
+        // Backendin urin alku
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        let uri = baseUrl + 'customers/R?offSet=' + this.state.start  +  '&limit=' + this.state.limit;;  
+        console.log("<==== GetCustomerData osoitteesta  ====>" + uri);
+               
         fetch(uri)
             .then(response => response.json())
             .then(json => {
@@ -106,8 +107,11 @@ class CustomerFetch extends Component {
             });
     } 
     NWDeleteRestApista() {
-        const apiUrl = 'https://localhost:5001/api/customers/' +
-                    this.state.CustomerID2Del;
+        /* const apiUrl = 'https://localhost:5001/api/customers/' +
+                    this.state.CustomerID2Del; */
+        // Backendin urin alku            
+        const baseUrl = process.env.REACT_APP_BASE_URL;
+        const apiUrl = baseUrl + 'customers/' + this.state.CustomerID2Del; 
         console.log("NWDelete uri ==> " + apiUrl);
         fetch(apiUrl, {
             method: "DELETE",

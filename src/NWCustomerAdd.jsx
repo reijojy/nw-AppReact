@@ -40,7 +40,9 @@ class NWCustomerAdd extends Component {
            ContactName: this.state.ContactName
         };
         const kundJson = JSON.stringify(kund);
-        const apiUrl = 'https://localhost:5001/api/customers/';
+        // Backendin urin alku
+        const apiUrl = process.env.REACT_APP_BASE_URL + "customers/";
+        /* const apiUrl = 'https://localhost:5001/api/customers/'; */
         fetch(apiUrl, {
             method: "POST",
             headers: {
