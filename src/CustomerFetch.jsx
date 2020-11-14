@@ -107,8 +107,7 @@ class CustomerFetch extends Component {
             });
     } 
     NWDeleteRestApista() {
-        /* const apiUrl = 'https://localhost:5001/api/customers/' +
-                    this.state.CustomerID2Del; */
+       
         // Backendin urin alku            
         const baseUrl = process.env.REACT_APP_BASE_URL;
         const apiUrl = baseUrl + 'customers/' + this.state.CustomerID2Del; 
